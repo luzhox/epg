@@ -14,16 +14,18 @@
     max-width: 100%;
 
     &.active,
-    &.actived {
-        background: #fff;
+    &.actived,
+    &.white {
+        background-color: $grayGreen;
     }
 
     @include desktop {
         position: fixed;
 
         &.actived,
-        &.active {
-            background-color: white;
+        &.active,
+        &.white {
+            background-color: $grayGreen;
         }
     }
 
@@ -52,7 +54,7 @@
 
         @include desktop {
             padding-left: 0px;
-            width: col(7, 31);
+            width: col(5, 31);
             height: 100%;
         }
 
@@ -95,7 +97,7 @@
 
             &.active {
                 height: auto;
-                background: white;
+                background-color: $grayGreen;
             }
 
             ul {
@@ -185,7 +187,8 @@
                         font-size: 16px;
                         line-height: 15px;
                         position: relative;
-                        color: $gray;
+                        color: white;
+                        font-family: $secondary-text;
 
                         &::before {
                             content: "";
@@ -230,11 +233,13 @@
                         color: $gray;
                         display: inline-block;
                         margin: 0;
-                        margin-right: 32px;
+                        margin-right: 16px;
                         border: 0px;
                         position: relative;
 
                         &.menu-item-has-children {
+                            margin-right: 32px;
+
                             a {
                                 &::after {
                                     content: "";
@@ -267,8 +272,49 @@
                             @include transition(.3s);
                             display: block;
                             width: auto;
-                            font-weight: 500;
+                            font-family: $secondary-text;
+                            font-size: 14px;
+                            font-weight: 400;
                             border: 0px;
+                        }
+
+                        &.btnDestacado {
+                            a {
+                                background: white;
+                                color: $grayGreen !important;
+                                font-weight: 600;
+                                padding: 12px 24px;
+
+                                &::before {
+                                    display: none !important;
+
+
+                                }
+                            }
+
+                            &Two {
+                                a {
+                                    @include tablet {
+                                        color: white !important;
+                                        background: #10B959 !important;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.btn__secondary {
+                            a {
+                                background: white;
+                                color: $grayGreen !important;
+                                font-weight: 600;
+                                padding: 12px 24px;
+
+                                &::before {
+                                    display: none !important;
+
+
+                                }
+                            }
                         }
 
                         ul {
@@ -328,7 +374,6 @@
                                 height: auto;
                                 padding: 12px;
                                 background: #fff;
-                                box-shadow: 0px 20px 64px rgba(111, 103, 164, 0.35);
 
                                 li {
                                     text-align: center;
@@ -383,7 +428,7 @@
             margin-top: 0px;
             display: flex;
             justify-content: flex-end;
-            width: col(22.5, 31);
+            width: col(26, 31);
 
         }
     }
@@ -446,11 +491,10 @@
         &.actived,
         &.active {
             p {
-                color: $gray;
+                color: white;
             }
 
-            background: white;
-            box-shadow: 0 5px 40px #dfdfdf;
+            background-color: $grayGreen;
 
             .site-header-brand {
                 padding-bottom: 0px;
@@ -486,7 +530,7 @@
             }
 
             li a {
-                color: $gray !important;
+                color: white !important;
             }
 
             .container {

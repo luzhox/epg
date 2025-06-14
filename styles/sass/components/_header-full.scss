@@ -1,0 +1,85 @@
+.header-full {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: center;
+
+  @include tablet {
+    height: calc(100vh - 200px);
+  }
+
+  .container {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+
+    h2 {
+      color: white;
+      font-size: 32px;
+      text-align: left;
+      font-family: $primary-text;
+      max-width: 860px;
+      text-rendering: geometricPrecision;
+
+      @include tablet {
+        font-size: 48px;
+      }
+    }
+  }
+
+  &__buttons {
+    margin-top: 24px;
+
+    a {
+      width: 100%;
+      margin-bottom: 24px;
+      text-align: center;
+
+      @include tablet {
+        margin-bottom: 0px;
+        width: auto;
+
+        &:last-child {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  }
+}

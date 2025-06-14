@@ -1,21 +1,93 @@
 .input-field {
     position: relative;
     margin-top: 16px;
-    min-height: 54px;
+    min-height: 56px;
     box-sizing: border-box;
+    margin-top: 12px;
 
+    &.text-field {
+        @include tablet {
+            margin-top: 21px;
+        }
+    }
+
+    .wpcf7-not-valid-tip {
+        font-size: 14px;
+    }
+
+    &.textarea {
+        margin-top: 0px;
+
+        textarea {
+            background: #ffffff;
+            border: 1px solid #CFD0E6;
+            height: 100px;
+            resize: none;
+            padding: 16px;
+            vertical-align: top;
+            margin-bottom: 24px;
+            border-radius: 8px;
+        }
+
+        label {
+            position: relative !important;
+            margin-bottom: 16px;
+        }
+    }
+
+    &.file {
+        border-bottom: 1px solid white;
+
+        label {
+            -webkit-transform: translateY(-12px) scale(0.6) !important;
+            transform: translateY(-12px) scale(0.6) !important;
+            bottom: 39% !important;
+        }
+
+        input {
+            margin-top: 34px;
+            text-overflow: hidden;
+            word-wrap: break-word;
+            width: 100%;
+        }
+    }
+
+    &.select-field {
+        select option {
+            padding: 0px 16px;
+            color: black;
+        }
+
+        &::before {
+            content: '';
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.41107 6.91009C4.73651 6.58466 5.26414 6.58466 5.58958 6.91009L10.0003 11.3208L14.4111 6.91009C14.7365 6.58466 15.2641 6.58466 15.5896 6.91009C15.915 7.23553 15.915 7.76317 15.5896 8.0886L10.5896 13.0886C10.2641 13.414 9.73651 13.414 9.41107 13.0886L4.41107 8.0886C4.08563 7.76317 4.08563 7.23553 4.41107 6.91009Z' fill='%233A915E'/%3E%3C/svg%3E%0A");
+            width: 20px;
+            height: 20px;
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 28px;
+            cursor: pointer;
+        }
+
+        select {
+            top: 14px;
+        }
+    }
+
+
+    input[type="tel"],
     input[type="text"],
     input[type="email"],
     input[type="number"],
     input[type="password"],
+    input[type="date"],
     textarea,
     select {
         color: $gray;
-        border: solid 1px $gray;
+        border-bottom: 1px solid #CFD0E6;
         width: 100%;
-        height: 54px;
-        padding-left: 20px;
-        @include border-radius(2px);
+        height: 44px;
         outline: none;
         font-size: 16px;
         -webkit-box-shadow: none;
@@ -25,15 +97,33 @@
         -moz-appearance: none;
         -ms-appearance: none;
         -webkit-appearance: none;
-        font-family: $primary-text;
+        font-family: $secondary-text;
         font-weight: 300;
         appearance: none;
         -webkit-transition: border 0.3s, -webkit-box-shadow 0.3s;
         transition: box-shadow 0.3s, border 0.3s, -webkit-box-shadow 0.3s;
-        @include border-radius(5px);
         background: transparent;
         position: relative;
         z-index: 20;
+        top: 14px;
+    }
+
+    input[type="date"] {
+
+
+        // &::before {
+        //     content: '';
+        //     background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.6738 7.34389H1.69865C1.69865 7.35971 1.68282 7.35971 1.68282 7.37552C1.66699 7.43876 1.66699 7.502 1.66699 7.56524V14.6483C1.68282 14.7432 1.68282 14.8222 1.69865 14.9013C1.80943 15.4072 2.06266 15.8183 2.50582 16.1187C2.7907 16.3242 3.12307 16.4191 3.47126 16.4507C3.48708 16.4507 3.50291 16.4507 3.51874 16.4349C3.55039 16.4349 3.59787 16.4507 3.62953 16.4507H10.2926C10.3401 16.4507 10.3718 16.4349 10.4193 16.4349V16.3874C9.51713 14.1265 10.1502 12.2925 11.9386 10.7906C11.7487 10.7747 11.5588 10.7747 11.353 10.7431C11.0523 10.6799 10.7833 10.3479 10.7991 10.0633C10.7991 10.0633 10.7833 10.0475 10.7833 10.0317V9.19371C10.7833 9.1779 10.7991 9.16209 10.7991 9.14628C10.7833 8.86169 11.0523 8.56129 11.4005 8.49805H11.448C11.7329 8.49805 12.0336 8.49805 12.3185 8.48224C12.3343 8.49805 12.3501 8.49805 12.366 8.49805C12.7458 8.52967 12.999 8.79845 13.0465 9.20952C13.0465 9.22533 13.0623 9.22533 13.0623 9.24114C13.0623 9.24114 13.0465 9.24114 13.0465 9.25695V10.253C13.9012 9.95261 14.7875 9.9368 15.7054 10.1581V7.37552C15.6896 7.35971 15.6738 7.34389 15.6738 7.34389ZM6.24096 13.7945H6.22513C6.17765 14.2847 5.84529 14.5376 5.38631 14.5376C5.14891 14.5534 4.89568 14.5534 4.65827 14.5376C4.32591 14.5376 3.99354 14.2372 3.94606 13.921C3.94606 13.9052 3.96189 13.8894 3.97772 13.8736C3.96189 13.8578 3.96189 13.842 3.96189 13.8262V12.9091C4.0252 12.5139 4.31008 12.2925 4.64245 12.2767C4.97481 12.2609 5.30718 12.2609 5.63954 12.3084C5.94025 12.3558 6.16183 12.5455 6.22513 13.0198C6.22513 13.0198 6.22514 13.0356 6.24096 13.0356C6.24096 13.0514 6.22513 13.0514 6.22513 13.0514V13.7629C6.22513 13.7629 6.22514 13.7787 6.24096 13.7945ZM6.22513 9.25695V9.98423C6.22513 10.4427 5.82946 10.7589 5.44962 10.7431C5.21221 10.7431 4.95898 10.7431 4.72158 10.7589C4.68993 10.7431 4.64245 10.7431 4.61079 10.7431C4.24677 10.7273 3.94606 10.3321 3.97772 10.0633C3.96189 10.0633 3.96189 10.0475 3.96189 10.0317V9.19371C3.96189 9.1779 3.96189 9.16209 3.97772 9.14628C3.94606 8.86169 4.23095 8.56129 4.57914 8.49805H4.62662C4.9115 8.49805 5.21221 8.49805 5.4971 8.48224C5.51292 8.49805 5.52875 8.49805 5.54458 8.49805C5.9086 8.52967 6.17765 8.81426 6.22513 9.20952C6.22513 9.22533 6.22514 9.22533 6.24096 9.24114C6.24096 9.24114 6.22513 9.24114 6.22513 9.25695ZM9.64374 13.7945C9.64374 13.7945 9.64374 13.7945 9.62791 13.7945C9.59626 14.2847 9.24807 14.5376 8.80492 14.5376C8.55169 14.5534 8.31428 14.5534 8.07688 14.5376C7.74452 14.5376 7.41215 14.2372 7.36467 13.921C7.36467 13.9052 7.3805 13.8894 7.3805 13.8736V12.9091C7.4438 12.5139 7.72869 12.2925 8.04523 12.2767C8.37759 12.2609 8.72578 12.2609 9.05815 12.3084C9.35886 12.3558 9.56461 12.5455 9.62791 13.0198C9.64374 13.0198 9.64374 13.0356 9.64374 13.0356C9.64374 13.0514 9.64374 13.0514 9.62791 13.0514V13.7629C9.64374 13.7629 9.64374 13.7787 9.64374 13.7945ZM9.62791 9.25695V9.98423C9.62791 10.4427 9.24807 10.7589 8.86822 10.7431C8.61499 10.7431 8.37759 10.7431 8.14019 10.7589C8.09271 10.7431 8.06105 10.7431 8.0294 10.7431C7.64955 10.7273 7.34884 10.3321 7.3805 10.0633C7.3805 10.0633 7.3805 10.0475 7.36467 10.0317C7.3805 9.74707 7.3805 9.46249 7.3805 9.19371V9.14628C7.36467 8.86169 7.64955 8.56129 7.98192 8.49805H8.0294C8.33011 8.49805 8.61499 8.49805 8.91571 8.48224C8.93153 8.49805 8.93153 8.49805 8.94736 8.49805C9.31138 8.52967 9.58043 8.81426 9.62791 9.20952C9.64374 9.22533 9.64374 9.22533 9.64374 9.24114C9.64374 9.24114 9.64374 9.24114 9.62791 9.25695ZM14.9299 10.7747C12.3343 10.5692 10.8308 12.5929 10.7675 14.3479C10.6883 16.6878 12.4926 18.2847 14.4076 18.3321C16.6392 18.4112 18.3802 16.6246 18.3327 14.5376C18.3802 12.4348 16.6551 10.917 14.9299 10.7747ZM15.9903 15.9131C15.8637 16.0554 15.6263 16.1028 15.4839 15.9606C15.1198 15.6443 14.7875 15.3123 14.4393 14.9645C14.3602 14.8854 14.2968 14.8064 14.2335 14.7115C14.2019 14.6799 14.2177 14.6325 14.2019 14.585V12.2293C14.1861 12.0712 14.281 11.9763 14.4076 11.9289C14.5817 11.8499 14.8033 11.9447 14.8824 12.087C14.9141 12.1344 14.9141 12.1819 14.9299 12.2293C14.9299 12.2451 14.9299 12.2609 14.9457 12.2767C14.9457 12.9408 14.9299 13.589 14.9457 14.253C14.9457 14.3321 14.9932 14.4428 15.0565 14.506C15.3414 14.8064 15.6421 15.1068 15.9428 15.3914C16.0853 15.5495 16.1169 15.7708 15.9903 15.9131ZM15.7054 4.65613V6.585H1.69865C1.68282 6.56919 1.68282 6.55338 1.66699 6.55338C1.66699 5.90515 1.66699 5.25692 1.68282 4.59289C1.66699 4.59289 1.66699 4.57708 1.66699 4.56127C1.71447 4.0079 1.95188 3.56521 2.36337 3.21739C2.69574 2.9328 3.09141 2.7747 3.55039 2.82213C3.55039 2.83794 3.56622 2.85375 3.58204 2.85375V3.73913C3.56622 3.75494 3.56622 3.75494 3.56622 3.75494C3.56622 3.77075 3.56622 3.77075 3.58204 3.78656C3.56622 4.52965 4.12016 5.13044 4.70575 5.35179C5.60789 5.69962 6.66829 5.11463 6.90569 4.19763C6.93734 4.07115 6.95317 3.94466 6.969 3.81818V3.77075C6.98483 3.45454 6.98483 3.13833 6.98483 2.82213C7.00065 2.80632 7.01648 2.80632 7.03231 2.79051H10.3718C10.3876 2.80632 10.3876 2.82213 10.4034 2.82213V3.73913C10.4034 3.75494 10.3876 3.75494 10.3876 3.75494C10.3876 3.77075 10.4034 3.77075 10.4034 3.78656C10.3876 4.52965 10.9415 5.13044 11.5271 5.35179C12.4293 5.69962 13.4897 5.11463 13.7429 4.19763C13.7746 4.07115 13.7746 3.94466 13.7904 3.81818C13.7904 3.80237 13.7904 3.78656 13.8062 3.77075V2.82213C14.2494 2.80632 14.6134 2.94861 14.9616 3.18577C15.3256 3.45454 15.5472 3.83399 15.6421 4.27668C15.6738 4.40316 15.7054 4.52965 15.7054 4.65613ZM6.24096 2.71145C6.22514 3.04347 6.24096 3.35968 6.22513 3.67589C6.22513 4.11858 6.05104 4.4506 5.62371 4.62451C5.00646 4.89329 4.34174 4.41897 4.32591 3.81818V3.16995C4.32591 2.96442 4.34174 2.75888 4.32591 2.55335C4.29426 2.18971 4.72158 1.68378 5.19639 1.66797C5.87694 1.66797 6.24096 2.15809 6.24096 2.71145ZM13.0623 2.71145C13.0465 3.04347 13.0623 3.35968 13.0623 3.67589C13.0465 4.11858 12.8724 4.4506 12.4451 4.62451C11.8279 4.89329 11.1631 4.41897 11.1631 3.81818C11.1473 3.59683 11.1631 3.3913 11.1631 3.16995C11.1631 2.96442 11.1631 2.75888 11.1473 2.55335C11.1315 2.18971 11.5588 1.68378 12.0178 1.66797C12.6983 1.66797 13.0782 2.15809 13.0623 2.71145ZM1.66699 14.585C1.66699 14.6167 1.66699 14.6325 1.66699 14.6641C1.66699 14.6325 1.66699 14.6009 1.66699 14.585ZM10.7833 9.19371C10.7833 9.1779 10.7833 9.16209 10.7991 9.14628C10.7991 9.16209 10.7833 9.1779 10.7833 9.19371ZM3.47126 16.4507C3.48708 16.4507 3.50291 16.4349 3.51874 16.4349C3.50291 16.4507 3.48708 16.4507 3.47126 16.4507ZM1.68282 7.37552C1.69865 7.35971 1.69865 7.35971 1.71447 7.34389C1.69865 7.35971 1.68282 7.35971 1.68282 7.37552ZM1.66699 6.55338C1.68282 6.56919 1.68282 6.56919 1.69865 6.585C1.68282 6.56919 1.68282 6.55338 1.66699 6.55338ZM13.0623 9.24114C13.0623 9.24114 13.0465 9.24114 13.0465 9.25695V9.20952C13.0465 9.22533 13.0623 9.22533 13.0623 9.24114ZM10.7833 10.0317C10.7833 10.0475 10.7833 10.0633 10.7991 10.0791C10.7991 10.0633 10.7833 10.0475 10.7833 10.0317ZM13.8062 3.77075C13.8062 3.78656 13.8062 3.80237 13.7904 3.81818C13.7904 3.80237 13.7904 3.78656 13.8062 3.77075ZM10.4034 3.73913V3.78656C10.4034 3.77075 10.3876 3.77075 10.3876 3.75494C10.3876 3.75494 10.4034 3.75494 10.4034 3.73913ZM3.58204 3.73913V3.78656C3.56622 3.77075 3.56622 3.77075 3.56622 3.75494C3.56622 3.75494 3.56622 3.75494 3.58204 3.73913ZM10.3718 2.79051C10.3876 2.80632 10.3876 2.80632 10.4034 2.82213C10.3876 2.82213 10.3876 2.80632 10.3718 2.79051ZM15.6738 7.34389C15.6896 7.35971 15.6896 7.35971 15.7054 7.37552C15.6896 7.35971 15.6738 7.34389 15.6738 7.34389ZM8.14019 10.7589C8.10853 10.7589 8.06105 10.7589 8.0294 10.7589C8.06105 10.7431 8.09271 10.7431 8.14019 10.7589ZM8.91571 8.48224C8.93153 8.48224 8.94736 8.48224 8.96319 8.49805C8.93153 8.49805 8.93153 8.49805 8.91571 8.48224ZM6.24096 9.24114C6.24096 9.24114 6.22513 9.24114 6.22513 9.25695V9.20952C6.22513 9.22533 6.22514 9.22533 6.24096 9.24114ZM9.64374 9.24114C9.64374 9.24114 9.64374 9.24114 9.62791 9.25695V9.20952C9.64374 9.22533 9.64374 9.22533 9.64374 9.24114ZM7.36467 10.0317C7.36467 10.0475 7.36467 10.0633 7.3805 10.0791C7.3805 10.0633 7.3805 10.0475 7.36467 10.0317ZM6.24096 13.0356C6.24096 13.0514 6.22513 13.0514 6.22513 13.0514C6.22513 13.0356 6.22513 13.0356 6.22513 13.0198C6.22513 13.0198 6.22514 13.0356 6.24096 13.0356ZM9.64374 13.0356C9.64374 13.0514 9.64374 13.0514 9.62791 13.0514C9.62791 13.0356 9.62791 13.0356 9.62791 13.0198C9.64374 13.0198 9.64374 13.0356 9.64374 13.0356ZM6.24096 13.7945H6.22513C6.22513 13.7787 6.22513 13.7787 6.22513 13.7629C6.22513 13.7629 6.22514 13.7787 6.24096 13.7945ZM9.64374 13.7945C9.64374 13.7945 9.64374 13.7945 9.62791 13.7945C9.62791 13.7787 9.62791 13.7787 9.62791 13.7629C9.64374 13.7629 9.64374 13.7787 9.64374 13.7945ZM3.97772 13.8736C3.97772 13.8578 3.97772 13.842 3.96189 13.8262C3.96189 13.842 3.96189 13.8578 3.97772 13.8736ZM14.2019 12.2293C14.2019 12.2451 14.1861 12.2609 14.1861 12.2767C14.2019 12.2609 14.2019 12.2451 14.2019 12.2293ZM14.9299 12.2293C14.9299 12.2451 14.9457 12.2609 14.9457 12.2767C14.9299 12.2609 14.9299 12.2451 14.9299 12.2293ZM14.2019 14.5376C14.2019 14.5534 14.2177 14.5692 14.2177 14.585C14.2019 14.5692 14.2019 14.5534 14.2019 14.5376Z' fill='%2387BF19'/%3E%3C/svg%3E%0A");
+        //     width: 20px;
+        //     height: 20px;
+        //     display: block;
+        //     position: absolute;
+        //     right: 0;
+        //     top: 28px;
+        //     cursor: pointer;
+        // }
+
+
     }
 
     .show-error {
@@ -44,13 +134,13 @@
         color: $gray;
         position: absolute;
         bottom: 40%;
-        left: 20px;
-        top: 20px;
+        left: 0px;
+        top: 16px;
         display: block;
         margin: 0 auto;
         font-size: 16px;
         z-index: 10;
-        font-family: $primary-text;
+        font-family: $secondary-text;
         font-weight: 300;
         cursor: text;
         -webkit-transition: color 0.2s ease-out, -webkit-transform 0.2s ease-out;
@@ -60,27 +150,60 @@
         text-align: initial;
 
         &.active {
+            -webkit-transform: translateY(-12px) scale(0.6);
+            transform: translateY(-12px) scale(0.6);
+            bottom: 39%;
+        }
+
+        &:hover {
+            color: $primary;
+        }
+    }
+
+    &.date-field {
+
+        label {
             -webkit-transform: translateY(-18px) scale(0.8);
             transform: translateY(-18px) scale(0.8);
-            bottom: 39%;
+            bottom: 36%;
+            font-weight: 400;
+            color: $gray;
+            font-weight: 400;
+        }
+
+        select {
+            margin-top: 12px !important;
+        }
+    }
+
+
+
+    &:hover {
+        input {
+            border-color: $darkGreen;
         }
     }
 
     &.active {
 
+        input[type="tel"],
         input[type="text"],
         input[type="email"],
         input[type="number"],
-        input[type="password"] {
+        input[type="password"],
+        input[type="date"] {
             padding-top: 16px;
+            color: $gray;
+            font-weight: 400;
         }
 
         label {
-            -webkit-transform: translateY(-14px) scale(0.8);
-            transform: translateY(-14px) scale(0.8);
+            -webkit-transform: translateY(-18px) scale(0.8);
+            transform: translateY(-18px) scale(0.8);
             bottom: 36%;
             font-weight: 400;
-            text-transform: uppercase;
+            color: $gray;
+            font-weight: 400;
         }
 
         textarea {
@@ -89,45 +212,262 @@
             label {
                 -webkit-transform: translateY(-12px) scale(0.8);
                 transform: translateY(-12px) scale(0.8);
+                font-weight: 700;
                 bottom: 3%;
             }
+        }
+    }
+
+    &.hidden {
+        display: none !important;
+    }
+}
+
+.wpcf7-not-valid-tip {
+    position: relative;
+    top: 8px;
+}
+
+.btn-submit {
+    position: relative;
+    margin-top: 32px;
+
+    @include tablet {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    svg {
+        position: absolute;
+        top: 16px;
+        right: 32px;
+
+        @include tablet {
+            top: 24px;
+
         }
     }
 }
 
 .btn-form {
-    background: $primary;
-    border: 1px solid $primary;
+    background: $darkGreen;
     box-sizing: border-box;
     color: white;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     display: block;
-    width: 100%;
-    padding: 20px 0px;
-    text-transform: uppercase;
-    border-radius: 8px;
+    padding: 20px 56px;
+    font-weight: 600;
     margin-top: 5px;
-    @include transition(.3s);
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
     cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
     appearance: none;
     -webkit-appearance: none;
+    width: 100%;
+    font-family: $secondary-text;
+    text-transform: uppercase;
+    border-radius: 24px;
+    position: relative;
+
+
+    @include tablet {
+        width: auto;
+        top: -72px;
+    }
+
+    &:disabled {
+        background: $n200;
+        border: 0px solid $n300;
+        color: $n300;
+        cursor: not-allowed;
+
+        &::after {
+            content: '';
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.7071 4.29289C12.3166 3.90237 11.6834 3.90237 11.2929 4.29289C10.9024 4.68342 10.9024 5.31658 11.2929 5.70711L16.5858 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H16.5858L11.2929 18.2929C10.9024 18.6834 10.9024 19.3166 11.2929 19.7071C11.6834 20.0976 12.3166 20.0976 12.7071 19.7071L19.5657 12.8485C19.5907 12.8236 19.6143 12.7978 19.6366 12.7712C19.8586 12.5878 20 12.3104 20 12C20 11.6896 19.8586 11.4122 19.6366 11.2288C19.6143 11.2022 19.5907 11.1764 19.5657 11.1515L12.7071 4.29289Z' fill='%2300106A'%3E%3C/path%3E%3C/svg%3E");
+            width: 24px;
+            height: 24px;
+        }
+
+        svg {
+            path {
+                fill: $n300;
+            }
+        }
+
+        &:hover {
+            background: $n200;
+            border: 0px solid $n300;
+            color: $n300;
+        }
+    }
+
+
+    &::after {
+        content: '';
+        width: 24px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 24px;
+        margin-left: 4px;
+        display: inline-block;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.7071 4.29289C12.3166 3.90237 11.6834 3.90237 11.2929 4.29289C10.9024 4.68342 10.9024 5.31658 11.2929 5.70711L16.5858 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H16.5858L11.2929 18.2929C10.9024 18.6834 10.9024 19.3166 11.2929 19.7071C11.6834 20.0976 12.3166 20.0976 12.7071 19.7071L19.5657 12.8485C19.5907 12.8236 19.6143 12.7978 19.6366 12.7712C19.8586 12.5878 20 12.3104 20 12C20 11.6896 19.8586 11.4122 19.6366 11.2288C19.6143 11.2022 19.5907 11.1764 19.5657 11.1515L12.7071 4.29289Z' fill='%2300106A'/%3E%3C/svg%3E");
+    }
 
     &:hover {
         background-color: $primary;
-        box-shadow: 0px 0px 10px $primary;
-        ;
+
     }
 }
 
 .group-form-2 {
     @include tablet {
-        width: col(6.80, 14);
-        display: inline-block;
-        margin-right: col(0.25, 14);
+        display: flex;
+        flex-flow: wrap;
+        width: 100%;
+
+        .input-field {
+            width: col(7, 15);
+            margin-right: col(1, 15);
+
+            &:last-child {
+                margin-right: 0px;
+            }
+        }
     }
 
     &:nth-child(3) {
         margin-right: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 32px;
+    }
+}
+
+.input-checkbox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: $gray;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    /* 142.857% */
+    letter-spacing: -0.4px;
+
+    a,
+    button {
+        color: $darkGreen !important;
+        text-decoration: underline;
+        background-color: white;
+        font-weight: 600;
+    }
+
+    .wpcf7-list-item {
+        margin: 12px 0 0;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        font-family: $secondary-text;
+
+        span {
+            margin-left: 8px;
+            line-height: 22px;
+        }
+    }
+
+    input {
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            min-width: 16px;
+            height: 16px;
+            display: block;
+            border: 1px solid $darkGreen;
+            border-radius: 3px;
+
+        }
+
+        &[type="checkbox"]:checked {
+            &::before {
+                content: '';
+                background: $darkGreen;
+                border: 1px solid $darkGreen;
+            }
+
+            &::after {
+                content: '';
+                width: 4px;
+                height: 8px;
+                display: block;
+                border: solid $n100;
+                border-width: 0 2px 2px 0;
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 2px;
+                left: 6px;
+            }
+        }
+    }
+
+    a {
+        color: $primary;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    p {
+        font-size: 14px;
+        margin-left: 8px;
+    }
+
+
+}
+
+.group-form {
+    display: flex;
+    flex-flow: wrap;
+
+    .input-field {
+        width: 100%;
+
+        @include tablet {
+            width: calc(100% / 4 - 16px);
+            margin-right: 16px;
+
+            &:nth-child(4n) {
+                margin-right: 0px;
+            }
+        }
+    }
+
+    &-3 {
+        .input-field {
+            @include tablet {
+                width: calc(100% / 3 - 16px);
+                margin-right: 16px;
+
+                &:nth-child(3n) {
+                    margin-right: 0px;
+                }
+            }
+        }
     }
 }

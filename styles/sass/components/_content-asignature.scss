@@ -1,0 +1,146 @@
+.content-asignature {
+  &__content {
+    &__item {
+      border: 1px solid $n300;
+      margin-bottom: 20px;
+      max-height: 95px;
+      overflow: hidden;
+      transition: ease-in-out .5s all;
+      cursor: pointer;
+
+      &__header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        font-family: $primary-text;
+        line-height: 130%;
+        /* 31.2px */
+        letter-spacing: 0.5px;
+        font-weight: 600;
+        padding: 16px 20px;
+        max-height: 95px;
+        text-rendering: geometricPrecision;
+        align-items: center;
+        min-height: 95px;
+
+        @include tablet {
+          font-size: 24px;
+          padding: 32px 28px;
+
+        }
+
+        svg {
+          margin-top: 12px;
+        }
+      }
+
+      &__content {
+        padding: 40px 28px;
+        font-size: 20px;
+        font-family: $secondary-text;
+        line-height: 130%;
+        /* 26px */
+        letter-spacing: 0.5px;
+        font-weight: 400;
+        background: #F5F9FF;
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 130%;
+          /* 23.4px */
+          letter-spacing: 0.5px;
+          font-family: $secondary-text;
+          margin-bottom: 12px;
+
+          @include tablet {
+            font-size: 16px;
+          }
+
+          strong {
+            font-weight: 700;
+            font-family: $secondary-text;
+          }
+        }
+      }
+
+      display: none;
+
+      &.show {
+        display: block;
+      }
+
+      &.active {
+        max-height: 100rem;
+
+        svg {
+          transform: rotate(180deg);
+
+          path {
+            // stroke-width: 3px;
+            stroke: $grayGreen;
+          }
+        }
+      }
+    }
+  }
+
+  &__title-filters {
+    display: flex;
+    flex-flow: wrap;
+    align-items: flex-end;
+    margin-top: 24px;
+    margin-bottom: 34px;
+    width: 100%;
+    justify-content: space-between;
+
+    &__title {
+      h2 {
+        color: $grayGreen;
+        font-size: 32px;
+        font-weight: 600;
+        font-family: $primary-text;
+        line-height: normal;
+        margin-bottom: 32px;
+
+        @include tablet {
+          font-size: 44px;
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    &__filters {
+      border-bottom: 1px solid $n300;
+
+      @include mobile {
+        display: flex;
+        overflow-x: scroll;
+
+      }
+
+      button {
+        background: white;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        font-family: $secondary-text;
+        margin-right: 16px;
+        padding-bottom: 16px;
+        min-width: 95px;
+
+        @include tablet {
+          font-size: 20px;
+        }
+
+        &.active {
+          font-weight: 600;
+          color: $grayGreen;
+          border-bottom: 2px solid $grayGreen;
+        }
+      }
+    }
+
+  }
+}

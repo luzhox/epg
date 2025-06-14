@@ -1,0 +1,58 @@
+.photo-claim {
+  background: #0F0803;
+
+  .container {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 0px;
+  }
+
+  &__text {
+    max-width: 720px;
+    position: relative;
+    padding: 24px;
+
+    @include tablet {
+      top: -48px;
+      padding: 0px;
+    }
+
+    h3 {
+      font-size: 28px;
+      font-family: $primary-text;
+      max-width: 860px;
+      text-rendering: geometricPrecision;
+      color: white;
+      margin-bottom: 16px;
+      font-weight: 400;
+
+      @include tablet {
+        font-size: 44px;
+      }
+    }
+
+    p {
+      font-size: 24px;
+      color: #0CA64E;
+      font-family: $secondary-text;
+      font-weight: 600;
+      text-rendering: geometricPrecision;
+
+      @include tablet {
+        font-size: 32px;
+      }
+    }
+  }
+
+  &__img {
+    max-width: 460px;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}

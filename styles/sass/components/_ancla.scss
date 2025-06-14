@@ -1,0 +1,6 @@
+.ancla {
+  @include tablet {
+    position: relative;
+    top: -112px;
+  }
+}

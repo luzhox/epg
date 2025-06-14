@@ -1,0 +1,88 @@
+/* Pagination Controls
+---------------------------------------------------------------------- */
+
+.controls-pagination {
+  padding: 1rem;
+  font-size: 0.1px;
+  text-align: justify;
+}
+
+.controls-pagination:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.mixitup-page-list,
+.mixitup-page-stats {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mixitup-page-list {
+  text-align: left;
+  width: 100%;
+  text-align: right;
+
+  &__notice {
+    margin-top: 32px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+.mixitup-page-stats {
+  font-size: .9rem;
+  color: #333;
+  font-weight: bold;
+  font-family: $secondary-text;
+}
+
+.mixitup-control {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  background: #fff;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  margin-right: 1px;
+  cursor: pointer;
+  font-size: .9rem;
+  color: #333;
+  font-weight: bold;
+  font-family: $secondary-text;
+  transition: color 150ms, border-color 150ms;
+  vertical-align: middle;
+}
+
+.mixitup-control:first-child {
+  border-radius: 3px 0 0 3px;
+}
+
+.mixitup-control:last-child {
+  border-radius: 0 3px 3px 0;
+}
+
+.mixitup-control:not(.mixitup-control-active):hover {
+  color: $primary;
+}
+
+.mixitup-control-active {
+  border-bottom-color: $primary;
+  cursor: default;
+}
+
+.mixitup-control:disabled {
+  background: #eaeaea;
+  color: #aaa;
+  cursor: default;
+}
+
+.mixitup-control-truncation-marker {
+  background: transparent;
+  pointer-events: none;
+  line-height: 2.2em;
+}

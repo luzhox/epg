@@ -1,0 +1,120 @@
+.academic-comite {
+  background: #F6F9FF;
+
+  &__title {
+    h3 {
+      font-family: 'DM Serif Text', serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 120%;
+      letter-spacing: 0px;
+      text-align: left;
+
+      @include tablet {
+        font-size: 40px;
+
+      }
+
+    }
+
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: wrap;
+    margin-top: 60px;
+
+    &__item {
+      background: white;
+      padding: 32px;
+      border-radius: 20px;
+      width: 100%;
+      display: flex;
+      position: relative;
+
+      a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .text {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      h4 {
+        font-family: 'DM Serif Text', serif;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 0%;
+
+        @include tablet {
+          font-size: 27px;
+
+        }
+
+      }
+
+    }
+  }
+
+  &__text {
+    margin-top: 24px;
+
+    p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 23px;
+      text-align: justify;
+      color: #143422;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    h4 {
+      font-family: 'DM Serif Text', serif;
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 100%;
+      text-align: left;
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 23px;
+      letter-spacing: 0%;
+      text-align: justify;
+      color: #0CA64E;
+      text-decoration: underline;
+    }
+
+    ul,
+    ol {
+      padding-left: 16px;
+
+
+      li {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 23px;
+        letter-spacing: 0%;
+        text-align: justify;
+        color: #143422;
+      }
+    }
+  }
+}

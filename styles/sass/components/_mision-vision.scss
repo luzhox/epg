@@ -1,0 +1,54 @@
+.mision-vision {
+  display: flex;
+  flex-flow: wrap;
+
+  h4 {
+    color: white;
+    font-size: 30px;
+    text-align: left;
+    font-family: $primary-text;
+    text-rendering: geometricPrecision;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 40px;
+    }
+  }
+
+  p {
+    color: white;
+    font-size: 18px;
+    text-align: left;
+    font-family: $secondary-text;
+    text-rendering: geometricPrecision;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__vision {
+    width: 100%;
+    padding: 32px 40px;
+    background: #0CA64E;
+
+    @include tablet {
+      width: 50%;
+      padding: 64px 80px;
+
+    }
+  }
+
+  &__mision {
+    padding: 32px 40px;
+    background: #1D3628;
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+      padding: 64px 80px;
+
+    }
+  }
+}

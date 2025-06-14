@@ -1,0 +1,59 @@
+.transparence-link {
+  min-height: 380px;
+  width: 100%;
+  position: relative;
+  background: #FBFBFB;
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__text {
+    h3 {
+      color: #2F2B3F;
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    &__links {
+      display: flex;
+      flex-flow: column;
+      margin-top: 24px;
+
+      a {
+        color: $primary;
+        color: #0CA64E;
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+
+        svg {
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    img {
+      width: auto;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

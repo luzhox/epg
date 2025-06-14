@@ -5,7 +5,6 @@ $(document).ready(function () {
   let prevScrollpos = $(window).scrollTop() + 70
 
   localStorage.removeItem('valuesBrand')
-
   localStorage.removeItem('viewNumbers')
   $(window).scroll(function () {
     const currentScrollPos = $(window).scrollTop()
@@ -51,9 +50,9 @@ $(document).ready(function () {
 
     function handleIntersect(entries, observer) {
       entries.forEach(function (entry) {
-        if (entry.target === document.querySelector('.about-us__counters') && entry.intersectionRatio >= 0.5 && !localStorage.getItem('viewNumbers')) {
+        if (entry.target === document.querySelector('.metrics') && entry.intersectionRatio >= 0.5 && !localStorage.getItem('viewNumbers')) {
           localStorage.setItem('viewNumbers', true)
-          $('.about-us__count__animated').each(function () {
+          $('.metrics__animated').each(function () {
             $(this)
               .prop('Counter', 0)
               .animate(
@@ -84,10 +83,10 @@ $(document).ready(function () {
     if (document.getElementById('valuesBrand')) {
       createObserver(document.getElementById('valuesBrand'))
     }
-    if (document.getElementsByClassName('about-us__counters')[0]) {
+    if (document.getElementsByClassName('metrics')[0]) {
       createObserver(document.getElementById('valuesBrand'))
 
-      createObserver(document.getElementsByClassName('about-us__counters')[0])
+      createObserver(document.getElementsByClassName('metrics')[0])
     }
   })
 
@@ -118,9 +117,9 @@ $(document).ready(function () {
   })
 
   $('.input-field').focusout(function (e) {
-    if ($(this).find('.wpcf7-form-control-wrap input').attr('value').length <= 0) {
+    if ($(this).find('.wpcf7-form-control-wrap input').val() <= 0) {
       $(this).removeClass('active')
-    } else if ($(this).find('.wpcf7-form-control-wrap input').attr('value').length >= 0) {
+    } else if ($(this).find('.wpcf7-form-control-wrap input').val()) {
       $(this).addClass('active')
     }
   })
@@ -184,12 +183,32 @@ $(document).ready(function () {
   addCarousel('hero-service__hero', 'URLHash', 1, true, 0, 1, false, false, false, false, 3000, '', '', false, false, false, 0, true)
   addCarousel('clients__items', 0, 1, true, 16, 4, true, true, false, true, 3000, '', '', false, false, false, 32)
   addCarousel('hero-container', 0, 1, true, 0, 1, true, true, false, true, 5000)
-  addCarousel('team__carousel', 0, 2, true, 0, 5, true, true, false, false, 3000, '', '', true, false, false, 0, false)
+  addCarousel('profiles__content', 0, 2, true, 32, 4, true, true, false, false, 3000, '', '', false, false, false, 32, false)
   addCarousel('success-stories__content', 0, 1, true, 32, 3, false, false, false, false, 3000, '', '', false, 4, false, 40)
   addCarousel('header-principal__text__carousel', 0, 1, true, 0, 1, true, false, false, true, 4000)
-
+  addCarousel('new-slider__slider', 0, 1, true, 0, 1, true, true, false, true, 5000)
+  addCarousel('testimonials__content', 0, 1, true, 0, 1, true, true, false, true, 5000)
+  addCarousel('brand-gallery__content', 0, 1, true, 16, 4, true, true, true, true, 4000)
+  addCarousel('experience-galleries__content__item__slider', 0, 1, true, 16, 1, true, true, false, true, 4000)
+  addCarousel('sustent-home__content', 0, 1, true, 16, 4, true, false, true, true, 4000)
+  addCarousel('single-sustentaciones__judge__content', 0, 1, true, 16, 4, true, false, true, true, 4000)
   if (window.matchMedia('(min-width: 900px)').matches) {
     $('.hero-service__buttons').addClass('owl-carousel owl-theme')
     addCarousel('hero-service__buttons', 0, 3, true, 0, 5, false, true, false, false, 4000, '', '', false, 5, false, 20, false)
   }
+
+  $('.maestrias__title__filters__header').click(function () {
+    console.log('click')
+    if ($('.maestrias__title__filters__content').hasClass('active')) {
+      $('.maestrias__title__filters__content').removeClass('active')
+      return
+    }
+    $('.maestrias__title__filters__content').addClass('active')
+  })
+  $('.maestrias__title__filters__content .filter').click(function () {
+    const filter = $(this).data('filter')
+    $('.maestrias__title__filters__content').removeClass('active')
+    $('.maestrias__title__filters__header h3').text($(this).text())
+    $('.maestrias__title__filters__header').data('filter', filter)
+  })
 })

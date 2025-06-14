@@ -1,0 +1,20 @@
+.form {
+  &__title {
+    h2 {
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      color: $grayGreen;
+      margin: 0;
+      font-family: $primary-text;
+      text-align: center;
+      align-items: center;
+
+      @include tablet {
+        font-size: 44px;
+
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+.profiles {
+  background: #F6F9FF;
+
+  &__title {
+    h3 {
+      color: $grayGreen;
+      font-size: 32px;
+      font-weight: 600;
+      font-family: $primary-text;
+      line-height: normal;
+      margin-bottom: 32px;
+      text-align: center;
+
+      @include tablet {
+        font-size: 44px;
+        margin-bottom: 40px;
+      }
+
+    }
+  }
+
+  &__content {
+    &__item {
+      width: 100%;
+
+      h3 {
+        color: var(--Green, #16A178);
+        font-family: $secondary-text;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%;
+        margin-top: 24px;
+        margin-bottom: 24px;
+        min-height: 58px;
+      }
+
+      p {
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        font-family: $secondary-text;
+
+      }
+
+      picture {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

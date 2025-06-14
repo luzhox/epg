@@ -1,0 +1,32 @@
+.organigrama {
+  &__img {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+
+    h3 {
+      font-size: 28px;
+      font-family: $primary-text;
+      text-rendering: geometricPrecision;
+      color: #1D3628;
+      margin-bottom: 16px;
+      font-weight: 400;
+      text-align: center;
+
+      @include tablet {
+        font-size: 44px;
+      }
+    }
+  }
+}

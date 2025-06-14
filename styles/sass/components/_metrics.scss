@@ -1,0 +1,57 @@
+.metrics {
+  background: #F6F9FF;
+
+  .container {}
+
+  &__numbers {
+    max-width: 928px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+
+    @include tablet {
+      justify-content: space-between;
+
+    }
+
+    &__item {
+      max-width: 274px;
+
+      h3 {
+        text-align: center;
+        color: #0CA64E;
+        font-family: $primary-text;
+        font-size: 80.913px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: -1.839px;
+
+        span {
+          text-align: center;
+          color: #0CA64E;
+
+          font-family: $primary-text;
+          font-size: 80.913px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: normal;
+          letter-spacing: -1.839px;
+        }
+      }
+
+      p {
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        font-family: $secondary-text;
+        color: $grayGreen;
+      }
+    }
+  }
+
+}

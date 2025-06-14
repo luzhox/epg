@@ -1,0 +1,289 @@
+.single-sustentaciones {
+  &__header {
+    position: relative;
+    height: 100vh;
+    max-height: 600px;
+    text-align: center;
+    h3 {
+      color: #fff;
+      font-family: 'DM Sans';
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 16px;
+    }
+    h1 {
+      color: #fff;
+      text-align: center;
+      font-family: 'DM Serif Text';
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      @include tablet {
+        font-size: 40px;
+      }
+    }
+    @include desktop {
+      max-height: 600px;
+    }
+    &__person {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+      h4 {
+        color: #fff;
+        text-align: center;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        strong {
+          font-weight: 700;
+        }
+      }
+      &__item {
+        &__img {
+          margin-left: 16px;
+          img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+    }
+    &__time {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: 'DM Sans';
+        font-weight: 700;
+        font-size: 24px;
+        svg {
+          margin-right: 8px;
+        }
+        &:first-child {
+          margin-right: 16px;
+        }
+      }
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      h3,
+      h1,
+      h4 {
+        color: white;
+      }
+    }
+  }
+  &__judge {
+    &__title {
+      margin-bottom: 44px;
+      h3 {
+        color: #1d3628;
+        text-align: center;
+        font-family: 'DM Serif Text', serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-rendering: geometricPrecision;
+        @include desktop {
+          font-size: 44px;
+        }
+      }
+    }
+    &__content {
+      &__item {
+        &__img {
+          overflow: hidden;
+          border-radius: 18px;
+          border: 1px solid rgb(230, 229, 250);
+          height: 340px;
+        }
+        img {
+          overflow: hidden;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        &__content {
+          margin-top: 16px;
+          p {
+            color: #14151a;
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%; /* 18.2px */
+            text-transform: uppercase;
+            margin-bottom: 8px;
+          }
+          h4 {
+            color: #0ca64e;
+            font-family: 'DM Sans';
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 130%; /* 28.6px */
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    &__title {
+      h2 {
+        color: #1d3628;
+        font-family: 'DM Serif Text';
+        text-align: center;
+        font-weight: 400;
+        text-rendering: geometricPrecision;
+        font-size: 32px;
+        @include tablet {
+          font-size: 44px;
+        }
+      }
+    }
+    &__menu {
+      border-bottom: 1px solid #e6e5fa;
+      display: flex;
+      flex-flow: row;
+      scroll-snap-type: x mandatory;
+      overflow-x: auto;
+      @include tablet {
+        justify-content: center;
+
+        flex-flow: wrap;
+      }
+      &__btn {
+        padding: 16px 0;
+        width: 100%;
+        text-align: left;
+        border: none;
+        font-size: 16px;
+        width: max-content;
+        margin-right: 24px;
+        background: none;
+        scroll-snap-align: center;
+        @include tablet {
+          font-size: 18px;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &.active {
+          color: #0ca64e;
+          font-weight: 700;
+          border-bottom: 2px solid #0ca64e;
+        }
+      }
+    }
+    &__container {
+      &__item {
+        padding: 24px 0px;
+        @include tablet {
+          padding: 24px;
+        }
+        p {
+          font-size: 16px;
+          line-height: 150%;
+          font-weight: 400;
+          font-family: 'DM Sans';
+          color: #14151a;
+          margin-bottom: 16px;
+        }
+        ol {
+          padding-left: 16px;
+          li {
+            font-size: 16px;
+            line-height: 150%;
+            font-weight: 400;
+            font-family: 'DM Sans';
+            margin-bottom: 16px;
+          }
+        }
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+  &__complete {
+    border-top: 1px solid #e6e5fa;
+    padding: 44px 0px;
+    .container {
+      text-align: center;
+    }
+    h3 {
+      color: #1d3628;
+      text-align: center;
+      font-family: 'DM Serif Text';
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 44px;
+      text-rendering: geometricPrecision;
+    }
+    a {
+      margin: 0 auto;
+    }
+  }
+  &__other {
+    background: #f8fbff;
+    h3 {
+      color: #1d3628;
+      text-align: center;
+      font-family: 'DM Serif Text';
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 44px;
+      text-rendering: geometricPrecision;
+      @include tablet {
+        font-size: 44px;
+      }
+    }
+  }
+}
